@@ -17,7 +17,6 @@ Examples:
 
 # npm packages
 - npm install express node-cron
-- npm install nodemailer
 - npm install dotenv
 - npm install --save @sendgrid/mail
 
