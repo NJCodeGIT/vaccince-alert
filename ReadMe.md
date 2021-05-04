@@ -16,10 +16,10 @@ Examples:
 (0 8 * * 1) – Runs 8 AM on every Monday
 
 # npm packages
-npm install express node-cron
-npm install nodemailer
-npm install dotenv
-npm install --save @sendgrid/mail
+- npm install express node-cron
+- npm install nodemailer
+- npm install dotenv
+- npm install --save @sendgrid/mail
 
 # To get district Id for Kerala
 
