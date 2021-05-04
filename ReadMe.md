@@ -23,6 +23,7 @@ Examples:
 # To get district Id for Kerala
 
 Please see districts.json file
+(for others - Go to https://www.cowin.gov.in/home and from development console we can find it)
 
 # Create .env file and set below values
 
