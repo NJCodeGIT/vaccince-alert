@@ -64,8 +64,8 @@ cron.schedule("*/1 * * * *", function () {
           if (emailBody != "")
           {
             const msg = {
-              to: 'nijumn.tech@gmail.com', // Change to your recipient
-              from: 'nijumn.tech@gmail.com', // Change to your verified sender
+              to: `${process.env.DISTRICT_ID}`, // Change to your recipient
+              from: `${process.env.DISTRICT_ID}`, // Change to your verified sender
               subject: 'Co-WIN Slot Availability Alert',
               text: 'Co-WIN Slot Availability Alert',
               html: emailBody,
