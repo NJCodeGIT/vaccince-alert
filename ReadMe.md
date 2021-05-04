@@ -24,4 +24,9 @@ Examples:
 
 Please see districts.json file
 
-# SendGrid Access Key need to change in .env file for getting email 
+# Create .env file and set below values
+
+- SENDGRID_API_KEY = xxxxxxxxxxxxxxxxxyZ3QFfc
+- DISTRICT_ID = 307
+- FROM_EMAIL = niju.mn@live.com
+- TO_EMAIL = niju.mn@live.com
