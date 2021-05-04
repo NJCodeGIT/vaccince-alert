@@ -47,7 +47,7 @@ cron.schedule("*/1 * * * *", function () {
                   if (center.sessions != undefined)
                   {
                     center.sessions.forEach(session => {
-                        if (session.available_capacity == 0)
+                        if (session.available_capacity > 0)
                         {
                           emailBody += `<p><strong>${session.vaccine}</strong> is available for <strong>${center.fee_type}</strong></p>`;
                           emailBody += `<p><strong>Location&nbsp; </strong>: ${center.pincode} || ${center.name} ||  ${center.address} || ${center.block_name}</p>`;
