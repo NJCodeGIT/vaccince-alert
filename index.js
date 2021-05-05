@@ -31,7 +31,7 @@ const options = {
 }
 
 // Creating a cron job which runs on every 10 second
-cron.schedule("*/1 * * * *", function () {
+cron.schedule("*/10 * * * * *", function () {
     console.log("running a task every 1 minute");
     
     const req = https.request(options, res => {
@@ -47,7 +47,7 @@ cron.schedule("*/1 * * * *", function () {
                   if (center.sessions != undefined)
                   {
                     center.sessions.forEach(session => {
-                        if (session.available_capacity > 0)
+                        if (session.available_capacity == 0)
                         {
                           emailBody += `<p><strong>${session.vaccine}</strong> is available for <strong>${center.fee_type}</strong></p>`;
                           emailBody += `<p><strong>Location&nbsp; </strong>: ${center.pincode} || ${center.name} ||  ${center.address} || ${center.block_name}</p>`;
@@ -64,8 +64,8 @@ cron.schedule("*/1 * * * *", function () {
           if (emailBody != "")
           {
             const msg = {
-              to: `${process.env.DISTRICT_ID}`, // Change to your recipient
-              from: `${process.env.DISTRICT_ID}`, // Change to your verified sender
+              to: `${process.env.TO_EMAIL}`, // Change to your recipient
+              from: `${process.env.FROM_EMAIL}`, // Change to your verified sender
               subject: 'Co-WIN Slot Availability Alert',
               text: 'Co-WIN Slot Availability Alert',
               html: emailBody,
