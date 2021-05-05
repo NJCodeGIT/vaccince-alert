@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 const express = require("express");
 const https = require('https')
-const sgMail = require('@sendgrid/mail')
+const sgMail = require('@sendgrid/mail');
 
 require('dotenv').config()
 
@@ -23,19 +23,21 @@ if (mm < 10) {
 var today = dd + '-' + mm + '-' + yyyy;
 
 const options = {
-    hostname: 'cdn-api.co-vin.in',
-    port: 443,
-    // path: '/api/v2/appointment/sessions/public/calendarByPin?pincode=695023&date=04-05-2021',
-    path: `/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${process.env.DISTRICT_ID}&date=${today}`,
-    method: 'GET'
+  hostname: 'cdn-api.co-vin.in',
+  port: 443,
+  // path: '/api/v2/appointment/sessions/public/calendarByPin?pincode=695023&date=04-05-2021',
+  path: `/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${process.env.DISTRICT_ID}&date=${today}`,
+  method: 'GET'
 }
 
 // Creating a cron job which runs on every 10 second
-cron.schedule("*/10 * * * * *", function () {
-    console.log("running a task every 1 minute");
-    
-    const req = https.request(options, res => {
-        console.log(`statusCode: ${res.statusCode}`)
+cron.schedule("*/1 * * * *", function () {
+  console.log("running a task every 1 minute");
+
+  const req = https.request(options, res => {
+
+    try {
+      console.log(`statusCode: ${res.statusCode}`)
       
         res.on('data', d => {
           var emailBody = "";
@@ -55,6 +57,8 @@ cron.schedule("*/10 * * * * *", function () {
                           emailBody += `<p><strong>Slot&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong>: ${session.available_capacity}.</p>`;
                           emailBody += `<p>-----------------------------------------------------------------------------------------------</p>`;
                           emailBody += `<p>&nbsp;</p>`;
+
+                          console.log(emailBody);
                         }
                     });
                   }
@@ -83,13 +87,19 @@ cron.schedule("*/10 * * * * *", function () {
           }
 
         })
-      })
-      
-      req.on('error', error => {
-        console.error(error)
-      })
-      
-      req.end()
+    }
+    catch (err) {
+      console.log(err);
+    }
+
+
+  })
+
+  req.on('error', error => {
+    console.error(error)
+  })
+
+  req.end()
 
 });
 
