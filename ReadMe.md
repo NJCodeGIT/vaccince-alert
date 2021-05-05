@@ -1,3 +1,27 @@
+# Install Node JS
+
+https://phoenixnap.com/kb/install-node-js-npm-on-windows
+
+# Clone the code repository to local
+
+# Install below npm packages (run each in command prompt under this code repository)
+- npm install express node-cron
+- npm install dotenv
+- npm install --save @sendgrid/mail
+
+# Create .env file and set below values
+
+- SENDGRID_API_KEY = xxxxxxxxxxxxxxxxxyZ3QFfc
+- DISTRICT_ID = 307
+- FROM_EMAIL = niju.mn@live.com
+- TO_EMAIL = niju.mn@live.com
+
+# Run application
+
+- node index
+
+# For Reference
+
 https://www.geeksforgeeks.org/how-to-run-cron-jobs-in-node-js/
 
 # Descriptors with their ranges:
@@ -15,19 +39,9 @@ Examples:
 (* * 21 * *) – Runs 21th of every month
 (0 8 * * 1) – Runs 8 AM on every Monday
 
-# npm packages
-- npm install express node-cron
-- npm install dotenv
-- npm install --save @sendgrid/mail
-
 # To get district Id for Kerala
 
 Please see districts.json file
 (for others - Go to https://www.cowin.gov.in/home and from development console we can find it)
 
-# Create .env file and set below values
 
-- SENDGRID_API_KEY = xxxxxxxxxxxxxxxxxyZ3QFfc
-- DISTRICT_ID = 307
-- FROM_EMAIL = niju.mn@live.com
-- TO_EMAIL = niju.mn@live.com
