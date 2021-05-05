@@ -2,7 +2,7 @@ Now we all check the Cowin portal from time to time to find vaccination slots in
 
 Cowin provides public APIs, I'm have written a small NodeJS application (many of which are available in online as well). If you run it locally, it will continuously monitor the availability of the given district (based on the intervals within the code) and if found, the code will send details of those hospitals by date.
 
-This is very basic coding, so you can customize it based on your need. To receive mail, you need to create an account-generated account in SendGrid and create an API key (to avoid storing passwords locally).
+This is very basic coding, so you can customize it based on your need. To receive mail, you need to create an account in SendGrid and create an API key (to avoid storing passwords locally).
 
 # Install Node JS
 
