@@ -31,7 +31,7 @@ const options = {
 }
 
 // Creating a cron job which runs on every 10 second
-cron.schedule("*/1 * * * *", function () {
+cron.schedule("*/5 * * * * *", function () {
   console.log("running a task every 1 minute");
 
   const req = https.request(options, res => {
@@ -41,7 +41,13 @@ cron.schedule("*/1 * * * *", function () {
       
         res.on('data', d => {
           var emailBody = "";
-          var slotResult = JSON.parse(d);
+
+          try {
+            var slotResult = JSON.parse(d);
+          }
+          catch(err) {
+            console.log(err);
+          }          
 
           if (slotResult != undefined && slotResult.centers != undefined)
           {
