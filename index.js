@@ -31,8 +31,8 @@ const options = {
 }
 
 // Creating a cron job which runs on every 10 second
-cron.schedule("*/5 * * * * *", function () {
-  console.log("running a task every 1 minute");
+cron.schedule("*/10 * * * * *", function () {
+  console.log("running a task every 10 seconds");
 
   const req = https.request(options, res => {
 
@@ -97,7 +97,6 @@ cron.schedule("*/5 * * * * *", function () {
     catch (err) {
       console.log(err);
     }
-
 
   })
 
